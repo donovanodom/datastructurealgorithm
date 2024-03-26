@@ -1,7 +1,7 @@
 function uniquePathsWithObstacles(obstacleGrid: number[][]): number {
   let rowLength = obstacleGrid[0].length, colLength = obstacleGrid.length
   if(obstacleGrid[colLength - 1][rowLength - 1] === 1) return 0
-  let grid = new Array(colLength).fill(0).map(() => new Array(rowLength).fill(0));
+  let grid = Array(colLength).fill(0).map(() => Array(rowLength).fill(0));
   for(let i = 0; i < rowLength; i++){
     if(obstacleGrid[0][i]) break
     if(grid[0][i] == 0 ) grid[0][i] = 1
