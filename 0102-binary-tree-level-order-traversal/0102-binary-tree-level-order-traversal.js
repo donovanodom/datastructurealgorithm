@@ -1,19 +1,8 @@
-const levelOrder = (root) => {
-  if(!root) return  []
-  const q = [[root,0]], map = {}
-  while(q.length){
-    for(const [node,x] of q){
-      if(!map[x]) map[x] = []
-      map[x].push(node.val)
-    }
-    const len = q.length
-    let i = 0
-    while(i < len){
-      const [node,x] = q.shift()
-      if(node.left) q.push([node.left, x + 1])
-      if(node.right) q.push([node.right, x + 1])
-      i++
-    }
-  }
-  return Object.values(map).map((val) => val)
+const levelOrder = (root, level = 0, map = {}) => {
+  if(!root) return []
+  if(!map[level]) map[level] = []
+  map[level].push(root.val)
+  if(root.left) levelOrder(root.left, level + 1, map)
+  if(root.right) levelOrder(root.right, level + 1, map)
+  return Object.values(map).map(val => val)
 };
