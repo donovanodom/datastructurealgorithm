@@ -10,9 +10,9 @@ const levelOrder = (root) => {
     let i = 0
     while(i < len){
       let [node,x] = q.shift()
-      node.children.map((child) => q.push([child,x+1]))
+      node.children.map(child => q.push([child,x+1]))
       i++
     }
   }
-  return Object.values(map).map((val) => val)
+  return Object.values(map).map(val => val)
 }
