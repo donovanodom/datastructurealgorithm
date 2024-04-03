@@ -1,7 +1,6 @@
 const findRedundantConnection = function(edges) {
   const parents = Array(edges.length + 1).fill().map((_,i) => i)
   for(const [a,b] of edges){
-    console.log(parents)
     if(union(parents,a,b)) return [a,b]
   }
 }
