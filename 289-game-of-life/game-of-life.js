@@ -5,21 +5,22 @@
 
 const gameOfLife = function(board) {
   const dirs = [[1,0], [1,1], [0,1], [-1,1], [-1,-1], [1,-1], [0,-1], [-1,0]]
-  const res = []
-  for (let i = 0; i < board.length; i++){
-    res[i] = board[i].slice()
-  }
+  const q = []
   for(let i = 0; i < board.length; i++){
     for(let j = 0; j < board[0].length; j++){
       let count = countLiving(board, i, j, dirs)
-      if(count < 2) res[i][j] = 0
-      if(count > 3) res[i][j] = 0
-      if(board[i][j] == 0 && count == 3) res[i][j] = 1
+      if(count < 2 || count > 3){
+        q.push(0)
+      } else if(board[i][j] == 0 && count == 3){
+        q.push(1)
+      } else {
+        q.push(board[i][j])
+      }
     }
   }
   for(let i = 0; i < board.length; i++){
     for(let j = 0; j < board[0].length; j++){
-      board[i][j] = res[i][j]
+      board[i][j] = q.shift()
     }
   }
   return board
