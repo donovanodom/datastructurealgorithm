@@ -1,9 +1,3 @@
-/**
- * @param {number[][]} maze
- * @param {number[]} start
- * @param {number[]} destination
- * @return {number}
- */
 const shortestDistance = function(maze, start, destination) {
   const row = maze.length, col = maze[0].length, dp = Array(maze.length).fill().map(() => Array(maze[0].length).fill(Infinity))
   const q = [[start,0,'']], dirs = {'up': [-1,0], 'down': [1,0], 'left': [0,-1], 'right': [0,1]}
