@@ -7,6 +7,5 @@ const countPrefixes = (words, s) => {
 }
 
 const checkPrefix = (word, s) => {
-  const sub = s.slice(0,word.length)
-  if(word == sub) return true
+  if(word == s.slice(0,word.length)) return true
 }
