@@ -36,7 +36,6 @@ const countUnguarded = function(m, n, guards, walls) {
   for(const [x,y] of guards){
     traverse(x, y, mat, row, col, total)
   }
-
   return total
 }
 
