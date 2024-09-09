@@ -1,6 +1,6 @@
 const countUnguarded = function(m, n, guards, walls) {
   const mat = Array(m).fill().map(() => Array(n).fill(0))
-  const row = mat.length, col = mat[0].length, seen = new Set()
+  const row = mat.length, col = mat[0].length
   let total = row * col
   for(const [x,y] of walls){
     mat[x][y] = 'W'
@@ -16,11 +16,7 @@ const countUnguarded = function(m, n, guards, walls) {
         if(nextX >= 0 && nextY >= 0 && nextX < row && nextY < col && mat[nextX][nextY] != 'W' && mat[nextX][nextY] != 'G'){
           if(mat[nextX][nextY] == 0) total--
           mat[nextX][nextY] = 1
-          const axis = key == 'd' || key == 'u' ? 'y' : 'x'
-          if(!seen.has(`(${nextX},${nextY},${axis})`)){
-            seen.add(`(${nextX},${nextY},${axis})`)
-            q.push([nextX,nextY,key])
-          }
+          q.push([nextX,nextY,key])
         }
       })
     }else{
@@ -28,11 +24,7 @@ const countUnguarded = function(m, n, guards, walls) {
       if(nextX >= 0 && nextY >= 0 && nextX < row && nextY < col && mat[nextX][nextY] != 'W' && mat[nextX][nextY] != 'G'){
         if(mat[nextX][nextY] == 0) total--
         mat[nextX][nextY] = 1
-        const axis = dir == 'd' || dir == 'u' ? 'y' : 'x'
-        if(!seen.has(`(${nextX},${nextY},${axis})`)){
-          seen.add(`(${nextX},${nextY},${axis})`)
-          q.push([nextX,nextY,dir])
-        }
+        q.push([nextX,nextY,dir])
       }
     }
   }
