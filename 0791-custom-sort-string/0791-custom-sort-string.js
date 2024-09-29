@@ -3,7 +3,7 @@ const customSortString = function(order, s) {
   let start = '', end = ''
   for(const char of s){
     if(!map[char] && order.includes(char)) map[char] = 0
-    if(map[char] || map[char] == 0){
+    if(map.hasOwnProperty(char)){
       map[char]++
     }else{
       end += char
