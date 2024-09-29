@@ -1,11 +1,8 @@
 const customSortString = function(order, s) {
-  const map = {}, set = new Set()
+  const map = {}
   let start = '', end = ''
-  for(const char of order){
-    set.add(char)
-  }
   for(const char of s){
-    if(!map[char] && set.has(char)) map[char] = 0
+    if(!map[char] && order.includes(char)) map[char] = 0
     if(map[char] || map[char] == 0){
       map[char]++
     }else{
