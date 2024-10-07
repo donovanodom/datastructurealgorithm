@@ -1,11 +1,11 @@
 const groupStrings = function(strings) {
-  const map = {}
+  const map = new Map()
   for(const s of strings){
     const key = getSeq(s)
-    if(!map[key]) map[key] = []
-    map[key].push(s)
+    if(!map.has(key)) map.set(key, [])
+    map.get(key).push(s)
   }
-  return Object.values(map)
+  return Array.from(map.values())
 }
 
 const getSeq = (str) => {
