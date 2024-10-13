@@ -13,15 +13,6 @@ const topKFrequent = function(nums, k) {
   const dp = Object.values(map).map((val) => val)
   dp.sort((a,b) => b[0] - a[0])
   
-  return dp.slice(0,k).map((arr) => arr[1])
-  // const res = []
-  // let i = 0
-  // while(i < dp.length && k){
-  //   if(dp[i]){
-  //     res.push(dp[i][1])
-  //     k--
-  //   }
-  //   i++
-  // }
-  // return res
+  // return the num value for the first k elements 
+  return dp.slice(0,k).map(([_,num]) => num)
 }
