@@ -1,4 +1,4 @@
-const averageOfSubtree = function(root) {
+const averageOfSubtree = (root) => {
   let count = 0
   const traverse = (node) => {
     if(!node) return [0, 0]
