@@ -13,7 +13,6 @@ const isCompleteTree = (root) => {
     levels[level].push(node.val)
   }
   traverse(root)
-  console.log(levels)
   return validLevels(levels)
 }
 
