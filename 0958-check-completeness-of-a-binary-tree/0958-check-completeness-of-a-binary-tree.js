@@ -1,6 +1,5 @@
 const isCompleteTree = (root) => {
   const levels = []
-  levels[0] = []
   const traverse = (node, level = 0) => {
     if(!node){
       if(!levels[level]) levels[level] = []
