@@ -32,7 +32,7 @@ const minRemoveToMakeValid = function(s) {
   // remove the first open parentheses you encounter
   let start = 0, end = s.length - 1
   while(closed.length){
-    if(s[start] == ')' && closed.length){
+    if(s[start] == ')'){
       closed.pop()
       s = s.slice(0, start) + s.slice(start + 1)
     }else{
@@ -40,7 +40,7 @@ const minRemoveToMakeValid = function(s) {
     }
   }
   while(open.length){
-    if(s[end] == '(' && open.length){
+    if(s[end] == '('){
       open.pop()    
       s = s.slice(0, end) + s.slice(end + 1)
     }else{
