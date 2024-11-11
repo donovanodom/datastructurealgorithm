@@ -9,7 +9,7 @@ const averageOfLevels = function(root) {
     traverse(node.right, level + 1)
   }
   traverse(root)
-  return Object.values(levels).map(([sum,count]) => {
-    return sum / count
-  })
+  return Object.values(levels).reduce((arr,[sum,count]) => {
+    return [...arr, sum / count]
+  }, [])
 }
