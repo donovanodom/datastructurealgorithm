@@ -10,3 +10,6 @@ const verticalOrder = function(root) {
   }
   return Object.values(map)
 }
+
+// O(N) time complexity: N = nodes
+// O(N) space complexity: N = nodes
