@@ -1,6 +1,6 @@
 const validPalindrome = function(s) {
-    let i = 0, j = s.length - 1, dif = 0
-    while(i < j && dif <= 1){
+    let i = 0, j = s.length - 1
+    while(i < j){
         if(s[i] == s[j]){
             i++
             j--
