@@ -1,11 +1,10 @@
 const calculate = function(s) {
-  let cur = ''
-  let sym = '+'
   const stack = []
+  let sym = '+', cur = ''
   for(const char of s){
     if(Number.isInteger(Number(char))){
       cur += char
-    }else{
+    } else {
       stack.push(handleArithmetic(sym, cur, stack))
       cur = ''
       sym = char
@@ -16,8 +15,11 @@ const calculate = function(s) {
 }
 
 const handleArithmetic = (sym, cur, stack) => {
-  if(sym == '+') return Number(cur)
-  if(sym == '-') return -Number(cur)
-  if(sym == '*') return stack.pop() * Number(cur)
-  if(sym == '/') return Math.trunc(stack.pop() / Number(cur))
+  const num = Number(cur)
+  let res = 0
+  if(sym == '+') res += num
+  if(sym == '-') res -= num
+  if(sym == '*') res += stack.pop() * num
+  if(sym == '/') res += Math.trunc(stack.pop() / num)
+  return res
 }
