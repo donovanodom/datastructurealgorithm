@@ -4,4 +4,4 @@ const lowestCommonAncestor = function(root, p, q) {
   const right = lowestCommonAncestor(root.right, p, q)
   if(left && right) return root
   return left ?? right
-};
+}
