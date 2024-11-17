@@ -11,9 +11,9 @@ const customSortString = function(order, s) {
   }
   for(const char of order){
     if(map[char]){
-      start = start + char.repeat(map[char])
+      start += char.repeat(map[char])
       map[char] = 0
-    } 
+    }
   }
   return start + end
 }
