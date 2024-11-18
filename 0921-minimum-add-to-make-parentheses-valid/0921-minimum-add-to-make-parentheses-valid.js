@@ -1,13 +1,13 @@
 const minAddToMakeValid = function(s) {
-  const stack = []
+  let open = 0, closed = 0
   for(const char of s){
     if(char == '('){
-      stack.unshift('(')
-    }else if(char == ')' && stack[0] == '('){
-      stack.shift()
+      open++
+    }else if(char == ')' && open){
+      open--
     }else if(char == ')'){
-      stack.push(')')
+      closed++
     }
   }
-  return stack.length
+  return open + closed
 }
