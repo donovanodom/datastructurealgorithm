@@ -6,9 +6,8 @@ const insert = (head, insertVal) => {
   } 
   let cur = head, fast = head.next
   while(true){
-    if((cur.val <= insertVal && cur.next.val >= insertVal) ||
+    if((cur.val <= insertVal && (cur.next.val >= insertVal || cur.next.val < cur.val)) ||
        (cur.val >= insertVal && cur.next.val >= insertVal && cur.next.val < cur.val) ||
-       (cur.val <= insertVal && cur.next.val < cur.val) ||
        cur.next == head
       ){
       const next = cur.next
