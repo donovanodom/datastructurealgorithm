@@ -18,7 +18,7 @@ const getSeq = (str) => {
   
   // start the sequence with 1 and add the difference
   // between each character ie. f - a = 6 - 1
-  let shift = '1'
+  let shift = ''
   for(let i = 1; i < str.length; i++){
     let diff = str.charCodeAt(i) - str.charCodeAt(i - 1)
     
