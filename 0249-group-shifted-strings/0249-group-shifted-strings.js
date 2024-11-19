@@ -26,7 +26,7 @@ const getSeq = (str) => {
     // for cases going backwards, a - f = 1 - 6 
     // append the difference to our sequence string
     if(diff < 0) diff += 26
-    shift += ',' + diff
+    shift += '-' + diff
   }
   
   // return the sequence to be used for its key
