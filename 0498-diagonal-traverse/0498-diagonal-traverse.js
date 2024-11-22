@@ -1,9 +1,9 @@
 const findDiagonalOrder = function(mat) {
-  const res = [mat[0][0]], q = [[0,0,'up']]
+  const res = [mat[0][0]], q = [[0,0,'up']], row = mat.length, col = mat[0].length
   while(q.length){
     const [x, y, dir] = q.shift()
     if(dir == 'up'){
-      if(mat[x - 1] && (mat[x - 1][y + 1] || mat[x - 1][y + 1] == 0)){
+      if(x - 1 >= 0 && y + 1 < col){
         res.push(mat[x - 1][y + 1])
         q.push([x - 1, y + 1, dir])
       }else{
@@ -13,7 +13,7 @@ const findDiagonalOrder = function(mat) {
         q.push([nX, nY, 'down'])
       }
     } else if (dir == 'down'){
-      if(mat[x + 1] && (mat[x + 1][y - 1] || mat[x + 1][y - 1] == 0)){
+      if(x + 1 < row && y - 1 >= 0){
         res.push(mat[x + 1][y - 1])
         q.push([x + 1, y - 1, dir])
       }else{
@@ -27,19 +27,19 @@ const findDiagonalOrder = function(mat) {
 }
 
 const reRoute = (cell, mat, dir) => {
-  const [x,y] = cell
+  const [x,y] = cell, row = mat.length, col = mat[0].length
   if(dir == 'up'){
-    if(mat[x] && (mat[x][y + 1] || mat[x][y + 1] == 0)){
+    if(y + 1 < col){
       return [x, y + 1, false]
-    } else if (mat[x + 1] && (mat[x + 1][y] || mat[x + 1][y] == 0)){
+    } else if (x + 1 < row){
       return [x + 1, y, false]
     } else {
       return [x, y, true]
     }
   } else if (dir == 'down'){
-    if(mat[x + 1] && (mat[x + 1][y] || mat[x + 1][y] == 0)){
+    if(x + 1 < row){
       return [x + 1, y, false]
-    } else if (mat[x] && (mat[x][y + 1] || mat[x][y + 1] == 0)){
+    } else if (y + 1 < col){
       return [x, y + 1, false]
     } else {
       return [x, y, true]
