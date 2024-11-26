@@ -1,8 +1,8 @@
 const findChampion = function(n, edges) {
   const adj = {}
   for(const [a,b] of edges){
-    if(!adj[b]) adj[b] = []
-    adj[b].push[a]
+    if(!adj[b]) adj[b] = 0
+    adj[b]++
   }
   const res = []
   for(let i = 0; i < n; i++){
