@@ -1,4 +1,4 @@
-const insertGreatestCommonDivisors = function(head) {
+const insertGreatestCommonDivisors = (head) => {
   let dummy = head
   while(dummy.next){
     const next = dummy.next
