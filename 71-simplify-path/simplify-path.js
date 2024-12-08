@@ -1,12 +1,12 @@
 const simplifyPath = (path) => {
-  const stack = [], arr = path.split('/')
-  for(const el of arr){
-    if(el == '..'){
+  const stack = [], files = path.split('/')
+  for(const file of files){
+    if(file == '..'){
       stack.pop()
-    }else if(el == '.'){
+    }else if(file == '.' || file == ''){
       continue
-    }else if(el){
-      stack.push(el)
+    }else{
+      stack.push(file)
     }
   }
   return '/' + stack.join('/')
