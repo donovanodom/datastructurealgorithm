@@ -1,8 +1,8 @@
 const twoSum = function(nums, target) {
-  const visited = new Map()
+  const map = {}
   for(let i = 0; i < nums.length; i++){
-    let num = nums[i], diff = target - num
-    if(visited.has(diff)) return [visited.get(diff),i]
-    visited.set(num, i) 
+    const diff = target - nums[i]
+    if(map.hasOwnProperty(diff)) return [i,map[diff]]
+    map[nums[i]] = i
   }
 };
