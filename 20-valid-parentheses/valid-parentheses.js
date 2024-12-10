@@ -1,15 +1,14 @@
-const isValid = (s) => {
-    let stack = [], i = 0
-    while(i<s.length){
-        let char = stack[stack.length-1]
-        if(s[i] == '(' || s[i] == '{' || s[i] == '['){
-            stack.push(s[i])
-        }else if(char == '(' && s[i] ==')' || char == '{' && s[i] =='}' || char == '[' && s[i] ==']'){
-            stack.pop()
-        }else{
-            return false
-        }
-        i++
+const isValid = function(s) {
+  const stack = []
+  for(const char of s){
+    const prev = stack[stack.length - 1]
+    if(char == '(' || char == '{' || char == '['){
+      stack.push(char)
+    }else if(prev == '(' && char == ')' || prev == '{' && char == '}' || prev == '[' && char == ']'){
+      stack.pop()
+    }else{
+      return false
     }
-    return !stack.length
+  }
+  return !stack.length
 }
