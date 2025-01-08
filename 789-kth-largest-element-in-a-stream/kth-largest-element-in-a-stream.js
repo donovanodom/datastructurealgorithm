@@ -4,7 +4,7 @@
  */
 var KthLargest = function(k, nums) {
   this.integer = k
-  this.stream = nums
+  this.stream = nums.sort((a,b) => b - a)
 };
 
 /** 
@@ -12,8 +12,20 @@ var KthLargest = function(k, nums) {
  * @return {number}
  */
 KthLargest.prototype.add = function(val) {
-  this.stream.push(val)
-  return this.stream.sort((a,b) => b - a)[this.integer - 1]
+  if(this.stream.length == 0){
+    this.stream.push(val)
+  }else{
+    for(let i = 0; i < this.stream.length; i++){
+      if(val > this.stream[i]){
+        this.stream.splice(i, 0, val)
+        break
+      }else if(i == this.stream.length - 1){
+        this.stream.push(val)
+        break
+      }
+    }
+  }
+  return this.stream[this.integer - 1]
 };
 
 /** 
