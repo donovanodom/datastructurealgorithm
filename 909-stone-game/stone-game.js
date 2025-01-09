@@ -1,3 +1,3 @@
 const stoneGame = function(piles) {
-return true
+  return true
 }
