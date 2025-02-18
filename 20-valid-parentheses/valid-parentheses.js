@@ -4,7 +4,7 @@ const isValid = function(s) {
     const prev = stack[stack.length - 1]
     if(char == '(' || char == '{' || char == '['){
       stack.push(char)
-    }else if(prev == '(' && char == ')' || prev == '{' && char == '}' || prev == '[' && char == ']'){
+    }else if((char == '}' && prev == '{') || (char == ')' && prev == '(') || (char == ']' && prev == '[')){
       stack.pop()
     }else{
       return false
